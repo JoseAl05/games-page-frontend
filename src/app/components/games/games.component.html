@@ -1,0 +1,48 @@
+<main class="bg-[#2a272a] relative pt-40">
+  <div class="flex relative z-0 items-center justify-center">
+    <h1 class="text-[#F1F0EA] text-6xl font-bold uppercase">Games</h1>
+  </div>
+  <app-filters></app-filters>
+  <div class="p-10 mt-10 mx-auto">
+    <div *ngIf="!isLoading" class="flex flex-col items-stretch gap-8">
+      <div *ngFor="let game of listGames.results">
+        <div
+          class="flex flex-row justify-between items-center mx-auto max-w-[100rem] border-t border-neutral-400 p-5 transition group hover:bg-teal-600"
+        >
+          <img
+            class="rounded-t-lg aspect-square max-w-[200px] object-cover transition group-hover:scale-105"
+            src="{{ game.background_image }}"
+            alt=""
+          />
+          <div class="grid grid-cols-2 gap-5 place-content-center items-center">
+            <div *ngFor="let platform of game.platforms">
+              <p class="text-[#F1F0EA] text-lg">
+                {{ platform.platform.name }}
+              </p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-5 place-content-center items-center">
+            <div *ngFor="let genre of game.genres">
+              <p class="text-[#F1F0EA] text-lg">{{ genre.name }}</p>
+            </div>
+          </div>
+          <div class="flex flex-col items-center gap-8 max-w-lg">
+            <p class="text-[#F1F0EA] text-3xl">{{ game.name }}</p>
+            <p class="text-[#F1F0EA] text-3xl">{{ game.released }}</p>
+          </div>
+          <fa-icon
+            [icon]="faArrowRight"
+            class="text-[#F1F0EA] text-xl invisible hidden transition group-hover:visible group-hover:inline-block"
+          ></fa-icon>
+        </div>
+      </div>
+      <div class="flex flex-row justify-center items-center">
+        <app-pagination [currentPage]="current_page" [qGames]="listGames.count" [total]="listGames.count / 10"></app-pagination>
+      </div>
+    </div>
+  </div>
+  <div class="text-[#F1F0EA] h-screen text-5xl" *ngIf="isLoading">
+    Loading games...
+  </div>
+</main>
+<router-outlet></router-outlet>

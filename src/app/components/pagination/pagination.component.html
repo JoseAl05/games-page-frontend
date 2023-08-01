@@ -1,0 +1,38 @@
+<div>
+  <ul
+    class="flex flex-row justify-center items-center gap-8 text-white text-lg"
+  >
+    <li>
+      <button
+        aria-label="Go to previous page"
+        [disabled]="isDisabled(currentPage)"
+        (click)="goBack(currentPage)"
+        class="bg-teal-600 rounded-lg p-2 w-full"
+      >
+        Back
+      </button>
+    </li>
+    <ng-container *ngFor="let page of visibleItems">
+      <ng-container *ngIf="currentPage === page">
+        <button class="bg-[#00c9c9] rounded-lg p-4 font-bold"(click)="goToPage(page)">
+          {{ page }}
+        </button>
+      </ng-container>
+      <ng-container *ngIf="currentPage !== page">
+        <button class="p-2"(click)="goToPage(page)">
+          {{ page }}
+        </button>
+      </ng-container>
+    </ng-container>
+    <li>
+      <button
+        aria-label="Go To next page"
+        [disabled]="currentPage === total.toString()"
+        (click)="goNext(currentPage)"
+        class="bg-teal-600 rounded-lg p-2 w-full"
+      >
+        Next
+      </button>
+    </li>
+  </ul>
+</div>
