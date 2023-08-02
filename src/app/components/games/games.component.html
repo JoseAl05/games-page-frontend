@@ -6,7 +6,8 @@
   <div class="p-10 mt-10 mx-auto">
     <div *ngIf="!isLoading" class="flex flex-col items-stretch gap-8">
       <div *ngFor="let game of listGames.results">
-        <div
+        <a
+          [routerLink]="['/games',game.id,game.slug]"
           class="flex flex-row justify-between items-center mx-auto max-w-[100rem] border-t border-neutral-400 p-5 transition group hover:bg-teal-600"
         >
           <img
@@ -34,7 +35,7 @@
             [icon]="faArrowRight"
             class="text-[#F1F0EA] text-xl invisible hidden transition group-hover:visible group-hover:inline-block"
           ></fa-icon>
-        </div>
+        </a>
       </div>
       <div class="flex flex-row justify-center items-center">
         <app-pagination [currentPage]="current_page" [qGames]="listGames.count" [total]="listGames.count / 10"></app-pagination>
