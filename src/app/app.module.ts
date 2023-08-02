@@ -11,6 +11,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { GamesComponent } from './components/games/games.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FiltersComponent } from './components/filters/filters.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FiltersComponent } from './components/filters/filters.component';
     GamesComponent,
     PaginationComponent,
     FiltersComponent,
+    GameDetailsComponent,
   ],
   imports: [
     BrowserModule,
