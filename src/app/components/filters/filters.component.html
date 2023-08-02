@@ -15,7 +15,7 @@
 <div class="flex flex-col items-center gap-5">
   <form class="flex flex-row justify-center gap-8" [formGroup]="filterForm" (ngSubmit)="setFilters()">
     <select class="w-[200px] p-2 bg-black text-white" (change)="setGenre($event)" formControlName="sortByGenre">
-      <option [ngValue]="null" selected disabled hidden>Select a genre...</option>
+      <option value="" selected disabled hidden>Select a genre...</option>
       <ng-container *ngIf="isLoadingGenres">
         <option disabled class="text-white text-lg">Loading...</option>
       </ng-container>
@@ -25,8 +25,8 @@
           </ng-container>
       </ng-container>
     </select>
-    <select class="w-[200px] p-2 bg-black " (change)="setPlatform($event)" formControlName="sortByPlatform">
-      <option [ngValue]="null" selected disabled hidden>Select a platform...</option>
+    <select class="w-[200px] p-2 bg-black text-white" (change)="setPlatform($event)" formControlName="sortByPlatform">
+      <option value="" selected disabled hidden>Select a platform...</option>
       <ng-container *ngIf="isLoadingPlatforms">
         <option disabled class="text-white text-lg">Loading...</option>
       </ng-container>
