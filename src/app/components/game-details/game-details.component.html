@@ -1,0 +1,68 @@
+<main class="bg-[#2a272a] relative pt-40">
+  <img
+    alt="{{ game_slug }}"
+    src="{{ game_details.background_image }}"
+    class="object-center h-[60vh] w-[80vw] mx-auto aspect-video rounded-xl"
+  />
+  <div class="flex relative z-0 items-center justify-center pt-10">
+    <h1 class="text-[#F1F0EA] text-6xl font-bold uppercase">{{ game_slug }}</h1>
+  </div>
+  <ng-container *ngIf="!isLoading">
+    <div class="flex flex-row justify-center items-center gap-5 py-10">
+      <ng-container *ngFor="let ratings of game_details.ratings">
+        <ng-container *ngIf="ratings.title === 'exceptional'">
+          <div
+            class="flex flex-col items-center gap-5 bg-[#FFD700] p-2 rounded-lg w-[10rem]"
+          >
+            <h1 class="text-[#333333] text-xl font-bold uppercase">
+              {{ ratings.title }}
+            </h1>
+            <p class="text-[#333333] text-lg font-bold uppercase">
+              {{ ratings.percent }} %
+            </p>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="ratings.title === 'recommended'">
+          <div
+            class="flex flex-col items-center gap-5 bg-[#25cc25] p-2 rounded-lg w-[10rem]"
+          >
+            <h1 class="text-white text-xl font-bold uppercase">
+              {{ ratings.title }}
+            </h1>
+            <p class="text-white text-lg font-bold uppercase">
+              {{ ratings.percent }} %
+            </p>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="ratings.title === 'meh'">
+          <div
+            class="flex flex-col items-center gap-5 bg-[#808080] p-2 rounded-lg w-[10rem]"
+          >
+            <h1 class="text-white text-xl font-bold uppercase">
+              {{ ratings.title }}
+            </h1>
+            <p class="text-white text-lg font-bold uppercase">
+              {{ ratings.percent }} %
+            </p>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="ratings.title === 'skip'">
+          <div
+            class="flex flex-col items-center gap-5 bg-[#FF0000] p-2 rounded-lg w-[10rem]"
+          >
+            <h1 class="text-white text-xl font-bold uppercase">
+              {{ ratings.title }}
+            </h1>
+            <p class="text-white text-lg font-bold uppercase">
+              {{ ratings.percent }} %
+            </p>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+  <div class="flex justify-center">
+    <a href={{game_details.website}} class="text-blue-400 text-3xl font-semibold transition hover:text-blue-700">Official Website</a>
+  </div>
+</main>
+<router-outlet></router-outlet>
