@@ -1,12 +1,41 @@
 <main class="bg-[#2a272a] relative pt-40">
+  <div *ngIf="isLoading" class="flex justify-center items-center">
+    <h1 class="text-white text-3xl font-semibold">Loading Details</h1>
+  </div>
   <img
     alt="{{ game_slug }}"
     src="{{ game_details.background_image }}"
     class="object-center h-[60vh] w-[80vw] mx-auto aspect-video rounded-xl"
   />
   <div class="flex relative z-0 items-center justify-center pt-10">
-    <h1 class="text-[#F1F0EA] text-6xl font-bold uppercase">{{ game_slug }}</h1>
+    <h1 class="text-white text-6xl font-bold uppercase">
+      {{ game_details.name_original }}
+    </h1>
   </div>
+  <ng-container *ngIf="metaScore >= 89 && metaScore <= 100">
+    <div class="flex justify-center items-center gap-3 py-10">
+      <p class="text-white text-xl">Metascore:</p>
+      <h1 class="text-white text-3xl font-bold uppercase p-3 bg-[#25cc25] rounded-xl">
+        {{ game_details.metacritic }}
+      </h1>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="metaScore >= 74 && metaScore < 89">
+    <div class="flex justify-center items-center gap-3 py-10">
+      <p class="text-white text-xl">Metascore:</p>
+      <h1 class="text-black text-3xl font-bold uppercase p-3 bg-[#f3d112] rounded-xl">
+        {{ game_details.metacritic }}
+      </h1>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="metaScore >= 0 && metaScore < 74">
+    <div class="flex justify-center items-center gap-3 py-10">
+      <p class="text-white text-xl">Metascore:</p>
+      <h1 class="text-white text-3xl font-bold uppercase p-3 bg-[#FF0000] rounded-xl">
+        {{ game_details.metacritic }}
+      </h1>
+    </div>
+  </ng-container>
   <ng-container *ngIf="!isLoading">
     <div class="flex flex-row justify-center items-center gap-5 py-10">
       <ng-container *ngFor="let ratings of game_details.ratings">
@@ -20,6 +49,9 @@
             <p class="text-[#333333] text-lg font-bold uppercase">
               {{ ratings.percent }} %
             </p>
+            <p class="text-[#333333] text-lg font-bold uppercase">
+              {{ ratings.count }} votes
+            </p>
           </div>
         </ng-container>
         <ng-container *ngIf="ratings.title === 'recommended'">
@@ -31,6 +63,9 @@
             </h1>
             <p class="text-white text-lg font-bold uppercase">
               {{ ratings.percent }} %
+            </p>
+            <p class="text-white text-lg font-bold uppercase">
+              {{ ratings.count }} votes
             </p>
           </div>
         </ng-container>
@@ -44,6 +79,9 @@
             <p class="text-white text-lg font-bold uppercase">
               {{ ratings.percent }} %
             </p>
+            <p class="text-white text-lg font-bold uppercase">
+              {{ ratings.count }} votes
+            </p>
           </div>
         </ng-container>
         <ng-container *ngIf="ratings.title === 'skip'">
@@ -56,13 +94,58 @@
             <p class="text-white text-lg font-bold uppercase">
               {{ ratings.percent }} %
             </p>
+            <p class="text-white text-lg font-bold uppercase">
+              {{ ratings.count }} votes
+            </p>
           </div>
         </ng-container>
       </ng-container>
     </div>
   </ng-container>
-  <div class="flex justify-center">
-    <a href={{game_details.website}} class="text-blue-400 text-3xl font-semibold transition hover:text-blue-700">Official Website</a>
+  <div class="flex flex-row justify-around items-center">
+    <div class="max-w-6xl mx-auto text-center p-5">
+      <p class="text-white text-lg font-light leading-relaxed">
+        {{ game_details.description_raw }}
+      </p>
+    </div>
+    <div
+      class="flex flex-col items-center mx-10 p-5 gap-3 border border-white rounded-lg"
+    >
+      <p class="text-white text-lg">
+        Release Date: {{ game_details.released }}
+      </p>
+      <p class="text-white text-lg">
+        Playtime: {{ game_details.playtime }} hours
+      </p>
+      <a
+        href="{{ game_details.website }}"
+        class="text-blue-400 text-lg font-semibold transition hover:text-blue-700"
+        target="_blank"
+        rel="noreferrer"
+        >Official Website</a
+      >
+      <a
+        href="{{ game_details.reddit_url }}"
+        class="text-blue-400 text-lg font-semibold transition hover:text-blue-700 hover:scale-105"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>Reddit Website</span>
+        <fa-icon
+          [icon]="['fab', 'reddit-alien']"
+          class="text-[#FF4500] mx-3"
+        ></fa-icon>
+      </a>
+      <a
+        href="{{ game_details.metacritic_url }}"
+        class="text-blue-400 text-lg font-semibold transition hover:text-blue-700 hover:scale-105"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>Metacritic Website</span>
+        <fa-icon [icon]="faComment" class="text-[#FFD700] mx-3"></fa-icon>
+      </a>
+    </div>
   </div>
 </main>
 <router-outlet></router-outlet>
