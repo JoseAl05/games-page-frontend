@@ -9,3 +9,8 @@ html,
 body {
   height: 100%;
 }
+
+.active {
+  --tw-text-opacity: 1;
+    color: rgb(6 182 212 / var(--tw-text-opacity));
+}
