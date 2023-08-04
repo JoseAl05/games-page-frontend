@@ -1,0 +1,121 @@
+<ng-container *ngIf="metaScore >= 89 && metaScore <= 100">
+  <div class="flex flex-col justify-center items-center gap-3 py-10">
+    <p class="text-white text-xl">Metascore</p>
+    <h1
+      class="text-white text-3xl font-bold uppercase p-3 bg-[#25cc25] rounded-xl"
+    >
+      {{ metacritic }}
+    </h1>
+  </div>
+</ng-container>
+<ng-container *ngIf="metaScore >= 74 && metaScore < 89">
+  <div class="flex flex-col justify-center items-center gap-3 py-10">
+    <p class="text-white text-xl">Metascore</p>
+    <h1
+      class="text-black text-3xl font-bold uppercase p-3 bg-[#f3d112] rounded-xl"
+    >
+      {{ metacritic }}
+    </h1>
+  </div>
+</ng-container>
+<ng-container *ngIf="metaScore >= 0 && metaScore < 74">
+  <div class="flex flex-col justify-center items-center gap-3 py-10">
+    <p class="text-white text-xl">Metascore</p>
+    <h1
+      class="text-white text-3xl font-bold uppercase p-3 bg-[#FF0000] rounded-xl"
+    >
+      {{ metacritic }}
+    </h1>
+  </div>
+</ng-container>
+<ng-container *ngIf="metacriticPlatforms.length === 0">
+    <h1 class="flex justify-center text-3xl text-white font-light">No data from other platforms.</h1>
+</ng-container>
+<ng-container *ngIf="metacriticPlatforms.length !== 0">
+    <div class="flex flex-row justify-center gap-8">
+        <ng-container *ngFor="let metacriticPlatform of metacriticPlatforms">
+            <ng-container *ngIf="metacriticPlatform.metascore >= 89 && metacriticPlatform.metascore <= 100">
+                <div class="flex justify-center items-center gap-3 py-5">
+                    <p class="text-white text-lg font-bold uppercase">{{metacriticPlatform.platform.name}}:</p>
+                    <p class="text-white text-lg font-bold uppercase p-3 bg-[#25cc25] rounded-xl">{{metacriticPlatform.metascore}}</p>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="metacriticPlatform.metascore >= 74 && metacriticPlatform.metascore < 89">
+                <div class="flex justify-center items-center gap-3 py-5">
+                    <p class="text-white text-lg font-bold uppercase">{{metacriticPlatform.platform.name}}:</p>
+                    <p class="text-black text-lg font-bold uppercase p-3 bg-[#f3d112] rounded-xl">{{metacriticPlatform.metascore}}</p>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="metacriticPlatform.metascore >= 0 && metacriticPlatform.metascore < 74">
+                <div class="flex justify-center items-center gap-3 py-5">
+                    <p class="text-white text-lg font-bold uppercase">{{metacriticPlatform.platform.name}}:</p>
+                    <p class="text-white text-lg font-bold uppercase p-3 bg-[#FF0000] rounded-xl">{{metacriticPlatform.metascore}}</p>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</ng-container>
+<div class="flex flex-row justify-center items-center gap-5 py-10">
+  <ng-container *ngFor="let rating of ratings">
+    <ng-container *ngIf="rating.title === 'exceptional'">
+      <div
+        class="flex flex-col items-center gap-5 bg-[#FFD700] p-2 rounded-lg w-[10rem]"
+      >
+        <h1 class="text-[#333333] text-xl font-bold uppercase">
+          {{ rating.title }}
+        </h1>
+        <p class="text-[#333333] text-lg font-bold uppercase">
+          {{ rating.percent }} %
+        </p>
+        <p class="text-[#333333] text-lg font-bold uppercase">
+          {{ rating.count }} votes
+        </p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="rating.title === 'recommended'">
+      <div
+        class="flex flex-col items-center gap-5 bg-[#25cc25] p-2 rounded-lg w-[10rem]"
+      >
+        <h1 class="text-white text-xl font-bold uppercase">
+          {{ rating.title }}
+        </h1>
+        <p class="text-white text-lg font-bold uppercase">
+          {{ rating.percent }} %
+        </p>
+        <p class="text-white text-lg font-bold uppercase">
+          {{ rating.count }} votes
+        </p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="rating.title === 'meh'">
+      <div
+        class="flex flex-col items-center gap-5 bg-[#808080] p-2 rounded-lg w-[10rem]"
+      >
+        <h1 class="text-white text-xl font-bold uppercase">
+          {{ rating.title }}
+        </h1>
+        <p class="text-white text-lg font-bold uppercase">
+          {{ rating.percent }} %
+        </p>
+        <p class="text-white text-lg font-bold uppercase">
+          {{ rating.count }} votes
+        </p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="rating.title === 'skip'">
+      <div
+        class="flex flex-col items-center gap-5 bg-[#FF0000] p-2 rounded-lg w-[10rem]"
+      >
+        <h1 class="text-white text-xl font-bold uppercase">
+          {{ rating.title }}
+        </h1>
+        <p class="text-white text-lg font-bold uppercase">
+          {{ rating.percent }} %
+        </p>
+        <p class="text-white text-lg font-bold uppercase">
+          {{ rating.count }} votes
+        </p>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

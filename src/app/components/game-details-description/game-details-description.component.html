@@ -1,0 +1,46 @@
+<div class="flex flex-row justify-around items-center">
+  <div class="max-w-6xl mx-auto text-center p-5">
+    <p class="text-white text-lg font-light leading-relaxed">
+      {{ description }}
+    </p>
+  </div>
+  <div
+    class="flex flex-col items-center mx-10 p-5 gap-3 border border-white rounded-lg"
+  >
+    <p class="text-white text-lg">Release Date: {{ released }}</p>
+    <p class="text-white text-lg">
+      Playtime: {{ playtime }} hours
+    </p>
+    <p class="text-white text-lg">
+      Achievements: {{ achievements }}
+    </p>
+    <a
+      href="{{ website }}"
+      class="text-blue-400 text-lg font-semibold transition hover:text-blue-700"
+      target="_blank"
+      rel="noreferrer"
+      >Official Website</a
+    >
+    <a
+      href="{{ redditWebsite }}"
+      class="text-blue-400 text-lg font-semibold transition hover:text-blue-700 hover:scale-105"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span>Reddit Website</span>
+      <fa-icon
+        [icon]="['fab', 'reddit-alien']"
+        class="text-[#FF4500] mx-3"
+      ></fa-icon>
+    </a>
+    <a
+      href="{{ metacriticWebsite }}"
+      class="text-blue-400 text-lg font-semibold transition hover:text-blue-700 hover:scale-105"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span>Metacritic Website</span>
+      <fa-icon [icon]="faComment" class="text-[#FFD700] mx-3"></fa-icon>
+    </a>
+  </div>
+</div>

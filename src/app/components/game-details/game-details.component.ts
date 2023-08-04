@@ -19,17 +19,11 @@ export class GameDetailsComponent {
   isLoading: boolean = true;
   metaScore: number;
 
-  faComment = faComment;
 
   constructor(
     private route: ActivatedRoute,
     private gameDetailsService: GameDetailsService,
-    private library: FaIconLibrary,
-  ) {
-    //ERROR: Type '"threads"' is not assignable to type 'IconName'. This is why I added @ts-ignore
-    //@ts-ignore
-    library.addIcons(faRedditAlien);
-  }
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {

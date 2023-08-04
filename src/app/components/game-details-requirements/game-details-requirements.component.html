@@ -1,0 +1,32 @@
+<h1 class="text-white text-4xl font-semibold text-center mt-40 mb-10">
+  PC Requirements
+</h1>
+<div class="flex flex-row justify-around gap-5 p-5 max-w-[100rem] mx-auto">
+  <div class="flex flex-col items-center gap-5">
+    <h1 class="text-white text-2xl text-center font-semibold">Minimum</h1>
+    <ng-container *ngIf="noRequirements === ''">
+      <p class="text-white text-base font-light max-w-3xl">
+        {{ pcRequirements[0].requirements.minimum }}
+      </p>
+    </ng-container>
+    <ng-container *ngIf="noRequirements !== ''">
+      <p class="text-white text-base font-light max-w-3xl">
+        {{ noRequirements }}
+      </p>
+    </ng-container>
+  </div>
+  <div class="border border-slate-400 h-[50vh]"></div>
+  <div class="flex flex-col items-center gap-5">
+    <h1 class="text-white text-2xl text-center font-semibold">Recommended</h1>
+    <ng-container *ngIf="noRequirements === ''">
+      <p class="text-white text-base font-light max-w-3xl">
+        {{ pcRequirements[0].requirements.recommended }}
+      </p>
+    </ng-container>
+    <ng-container *ngIf="noRequirements !== ''">
+      <p class="text-white text-base font-light max-w-3xl">
+        {{ noRequirements }}
+      </p>
+    </ng-container>
+  </div>
+</div>
