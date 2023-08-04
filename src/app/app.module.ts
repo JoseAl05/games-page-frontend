@@ -12,6 +12,9 @@ import { GamesComponent } from './components/games/games.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { GameDetailsRatingsComponent } from './components/game-details-ratings/game-details-ratings.component';
+import { GameDetailsDescriptionComponent } from './components/game-details-description/game-details-description.component';
+import { GameDetailsRequirementsComponent } from './components/game-details-requirements/game-details-requirements.component';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
     PaginationComponent,
     FiltersComponent,
     GameDetailsComponent,
+    GameDetailsRatingsComponent,
+    GameDetailsDescriptionComponent,
+    GameDetailsRequirementsComponent,
   ],
   imports: [
     BrowserModule,
