@@ -21,7 +21,7 @@
       </ng-container>
       <ng-container *ngIf="!isLoadingGenres">
           <ng-container *ngFor="let genre of listGenres.results">
-            <option id="sortByGenre" name="sortByGenre" [ngValue]="genre.id" class="text-white">{{ genre.name }}</option>
+            <option [value]="genre.id" class="text-white">{{ genre.name }}</option>
           </ng-container>
       </ng-container>
     </select>
@@ -32,7 +32,7 @@
       </ng-container>
       <ng-container *ngIf="!isLoadingPlatforms">
           <ng-container *ngFor="let platform of listPlatforms.results">
-            <option id="sortByPlatform" name="sortByPlatform" [ngValue]="platform.id" class="text-white">{{ platform.name }}</option>
+            <option [value]="platform.id" class="text-white">{{ platform.name }}</option>
           </ng-container>
       </ng-container>
     </select>

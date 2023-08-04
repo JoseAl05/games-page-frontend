@@ -28,8 +28,8 @@ export class FiltersComponent {
   ) {}
 
   filterForm = this.fb.group({
-    sortByGenre: [''],
-    sortByPlatform: [''],
+    sortByGenre: '',
+    sortByPlatform: '',
   });
 
   ngOnInit() {
@@ -94,7 +94,6 @@ export class FiltersComponent {
   /* SET VALUES FOR QUERY PARAMS */
 
   setGenre(e: any) {
-    console.log(typeof e.target.value)
     const formattedGenre = this.formatQueryParam(e.target.value);
     this.genre?.setValue(formattedGenre, {
       onlySelf: true,
@@ -102,7 +101,6 @@ export class FiltersComponent {
   }
 
   setPlatform(e: any) {
-    console.log(typeof e.target.value)
     const formattedPlatform = this.formatQueryParam(e.target.value);
     this.platform?.setValue(formattedPlatform, {
       onlySelf: true,
