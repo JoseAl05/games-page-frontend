@@ -1,6 +1,6 @@
 import { DeveloperProps } from './developer.interface';
 import { GenreDataProps } from './genre.interface';
-import { PlatformDataProps } from './platforms.interface';
+import { PlatformDataProps, PlatformProps } from './platforms.interface';
 import { PublisherProps } from './publisher.interface';
 import { StoreProps } from './store.interface';
 import { TagProps } from './tag.interface';
@@ -57,7 +57,7 @@ export interface GameDetailsProps {
   saturated_color: string;
   dominant_color: string;
   parent_platforms: ParentPlatformsProps[];
-  platforms: PlatformDataProps[];
+  platforms: PlatformsProps[];
   stores: StoreProps[];
   developers: DeveloperProps[];
   genres: GenreDataProps[];
@@ -91,3 +91,19 @@ export interface ParentPlatformsProps {
   name: string;
   slug: string;
 }
+
+export interface PlatformsProps {
+  platform: {
+    id: number;
+    name: string;
+    slug: string;
+    image: string | null;
+    year_end: number | null;
+    year_start: number;
+    games_count: number;
+    image_background: string;
+  },
+  released_at: string,
+  requirements: {}
+}
+
