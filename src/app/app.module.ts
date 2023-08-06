@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { GalleryModule } from 'ng-gallery';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 import { GameDetailsRatingsComponent } from './components/game-details-ratings/game-details-ratings.component';
 import { GameDetailsDescriptionComponent } from './components/game-details-description/game-details-description.component';
 import { GameDetailsRequirementsComponent } from './components/game-details-requirements/game-details-requirements.component';
+import { ImageGalleryComponent } from './components/image-gallery/image-gallery.component';
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { GameDetailsRequirementsComponent } from './components/game-details-requ
     GameDetailsRatingsComponent,
     GameDetailsDescriptionComponent,
     GameDetailsRequirementsComponent,
+    ImageGalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +41,11 @@ import { GameDetailsRequirementsComponent } from './components/game-details-requ
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    GalleryModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
