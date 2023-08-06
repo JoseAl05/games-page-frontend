@@ -38,6 +38,11 @@
     </app-game-details-description>
     <app-game-details-requirements [platforms]="game_details.platforms">
     </app-game-details-requirements>
+    <app-image-gallery
+      [screenshots]="screenshots"
+      [isLoadingImages]="isLoadingImages"
+    >
+    </app-image-gallery>
   </main>
 </ng-container>
 <router-outlet></router-outlet>
