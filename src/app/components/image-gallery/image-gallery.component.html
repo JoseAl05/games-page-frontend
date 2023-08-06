@@ -1,0 +1,13 @@
+<div class="max-w-5xl mx-auto mt-40 pb-10">
+  <h1 class="text-white text-4xl font-semibold text-center mt-40 mb-10">
+    Image Gallery
+  </h1>
+  <ng-container *ngIf="!isLoadingImages">
+    <gallery gallerize [items]="images" thumbPosition="bottom" [autoHeight]="true"></gallery>
+  </ng-container>
+  <ng-container *ngIf="isLoadingImages">
+    <h1 class="text-[#F1F0EA] text-6xl font-bold uppercase">
+      Loading Images...
+    </h1>
+  </ng-container>
+</div>
